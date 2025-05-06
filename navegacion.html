@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navegación</title>
+    <link rel="icon" href="terraria1234.png" type="image/png">
+    <style>
+        /* Estilo general para el cuerpo de la página */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-image: url('https://i.redd.it/nzejkztbkcab1.gif'); /* Imagen de Google */
+            text-align: center;
+        }
+
+        /* Contenedor principal de la navegación */
+        .navegacion-contenedor {
+            position: relative; /* Necesario para que los botones se posicionen al final */
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.6); /* Fondo más oscuro */
+            padding: 30px;
+            border-radius: 12px; /* Bordes redondeados */
+            border: 2px solid rgba(255, 255, 255, 0.3); /* Borde sutil y blanco */
+            width: 80%; /* Aseguramos que el contenedor tenga un ancho adecuado */
+            max-width: 800px; /* Máximo ancho para no extenderse demasiado */
+            height: 80vh; /* Altura ajustable */
+        }
+
+        /* Contenedor de los botones */
+        .botones-navegacion {
+            position: absolute;
+            bottom: 30px; /* Los botones estarán a 30px del fondo */
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Espacio entre los botones */
+        }
+
+        /* Estilo para los botones */
+        .boton-pequeno {
+            padding: 12px 25px;
+            font-size: 18px; /* Aumenté el tamaño de la fuente */
+            background-color: #28a745; /* Verde */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Cambio de color al pasar el mouse sobre el botón */
+        .boton-pequeno:hover {
+            background-color: #218838; /* Verde más oscuro */
+        }
+
+        /* Estilo para el encabezado */
+        h1 {
+            font-size: 35px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+	h2 {
+            font-size: 20px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        /* Estilo para los párrafos */
+        p {
+            font-size: 18px;
+            color: #ddd; /* Color gris claro para el texto */
+        }
+
+        /* Contenedor para el texto central */
+        .texto-central {
+            margin: 50px 0; /* Espacio entre el texto y los botones */
+            color: #fff; /* Color blanco para el texto */
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Contenedor principal -->
+    <div class="navegacion-contenedor">
+        <!-- Contenedor de botones -->
+        <div class="botones-navegacion">
+            <!-- Botón para Home -->
+            <button class="boton-pequeno" onclick="location.href='/index.html'">Executar un servidor</button>
+            <!-- Botón para Servidores -->
+            <button class="boton-pequeno" onclick="location.href='/PORTserver/index.php'">Llistat dels servidors</button>
+        </div>
+
+        <!-- Texto central vacío (para que se rellene después) -->
+        <div class="texto-central">
+            <!-- Texto de ejemplo agregado -->
+            <h1>Projecte Terraria Server</h1>
+        </div>
+
+        <!-- Título y texto descriptivo -->
+        <h2>Benvingut a la pàgina principal del projecte terraria.</h2>
+        <p>Abaix podras trobar botons per redargüir a les altres pàgines.</p>
+	<p>Podras executar servidors i veure el estat i la seva informació de cada servidor propi.</p>
+	<p><p>
+        <p><p>
+        <p><p>
+        <p><p>
+    </div>
+
+</body>
+</html>
