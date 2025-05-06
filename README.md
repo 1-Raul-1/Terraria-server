@@ -1,0 +1,3 @@
+This is a project for the smx class, this is a beta and can have problems, one of this is with the user of apache2 execute the html,bash,php etc...  
+
+sry for this.
