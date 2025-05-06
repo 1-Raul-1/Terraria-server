@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Servidor de Terraria</title>
+    <link rel="icon" href="terraria1234.png" type="image/png">
+    <style>
+        /* Estilo para el botón de navegación */
+        .boton-navegacion {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            padding: 5px 10px;
+            font-size: 28px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+        .boton-navegacion:hover {
+            background-color: #0056b3;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+        body {
+            background: url('https://i.redd.it/yc7buqh53xl51.gif') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'San Francisco', cursive;
+            text-align: center;
+            color: #fff;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 50px;
+        }
+
+        input, select, button {
+            font-family: 'San Francisco', bold type;
+            font-size: 14px;
+            margin: 10px;
+            padding: 8px;
+            border: 2px solid #0f5;
+            border-radius: 5px;
+            background: #222;
+            color: #0f5;
+        }
+
+        button {
+            cursor: pointer;
+            background: #0a5;
+        }
+
+        .difficulty {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .difficulty button {
+            width: 120px;
+            background: #555;
+            border: 3px solid white;
+        }
+
+        .difficulty button.active {
+            border-color: yellow;
+            background: #0a5;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Botón de navegación -->
+    <button class="boton-navegacion" onclick="location.href='/navegacion.html'">Ir a Servidores</button>
+
+    <div class="container">
+        <h2>Configura el teu servidor</h2>
+        <form id="gameForm" action="execute.php" method="post">      <!-- en esta linea falta execute.php-->
+            <label>Nom del contenidor:</label><br>
+            <input type="text" name="container_name" placeholder="Ejemplo: Terraria01" required><br>
+
+            <label>Llavor del món:</label><br>
+            <input type="text" name="seed" placeholder="Ejemplo: 12345"><br>
+
+            <label>Nom del món:</label><br>
+            <input type="text" name="world_name" placeholder="Ejemplo: MiMundo" required><br>
+
+            <label>Número de jugadors (1-16):</label><br>
+            <input type="number" name="players" min="1" max="16" required><br>
+
+            <label>Contrasenya del servidor:</label><br>
+            <input type="password" name="password"><br>
+
+            <label>Dificultat:</label>
+            <div class="difficulty">
+                <button type="button" onclick="selectDifficulty(0)" id="btnNormal">Normal</button>
+                <button type="button" onclick="selectDifficulty(1)" id="btnExperto">Expert</button>
+                <button type="button" onclick="selectDifficulty(2)" id="btnMaestro">Mestre</button>
+            </div>
+            <input type="hidden" name="difficulty" id="difficulty" value="1"><br>
+
+	    <button type="button" id="btnEnviar" onclick="enviarform()">Iniciar Servidor</button>
+        </form>
+    </div>
+
+    <script>
+    function selectDifficulty(level) {
+        document.getElementById('difficulty').value = level;
+        document.getElementById('btnNormal').classList.remove('active');
+        document.getElementById('btnExperto').classList.remove('active');
+        document.getElementById('btnMaestro').classList.remove('active');
+
+        if (level === 0) document.getElementById('btnNormal').classList.add('active');
+        if (level === 1) document.getElementById('btnExperto').classList.add('active');
+        if (level === 2) document.getElementById('btnMaestro').classList.add('active');
+    }
+
+    function enviarform() {
+        const form = document.getElementById('gameForm');
+        const boton = document.getElementById('btnEnviar');
+
+        if (form.checkValidity()) {
+            boton.disabled = true;
+            boton.textContent = "Enviando...";
+            form.submit();
+        } else {
+            form.reportValidity();
+        }
+    }
+    </script>
+
+</body>
+</html>
