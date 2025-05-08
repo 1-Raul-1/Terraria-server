@@ -174,15 +174,30 @@ foreach ($files as $file) {
         }
 
 	.delete-btn{
-	  bakground-color: #2822bb;
-	  color: #2823bc;
-	  border-color: #302c9b;
-	  border-bottom: 2px solid #2f2c79;
-	  box-shadow: 0 0 5px #2d2c55
-	  
+	  background-color: #2f0000;
+	  color: #3944e3;
+	  border-color: #faf20a;
+	  border-bottom: 2px solid #faf20a;
+	  box-shadow: 0 0 5px #faf20a;
 	}
+
+	a.power-btn[style*="opacity:0.5"] {
+    	 cursor: not-allowed;
+    	 pointer-events: none !important;
+	}
+
     </style>
 </head>
+
+<script>
+function handleAction(link) {
+    link.style.pointerEvents = 'none';
+    link.style.opacity = '0.5';
+    link.textContent = 'Procesando...';
+    return true;
+}
+</script>
+
 <body>
 
     <!-- Botón de navegación -->
@@ -227,14 +242,12 @@ foreach ($files as $file) {
                             <td><?= htmlspecialchars($s['ip']) ?></td>
                             <td><?= htmlspecialchars($s['estado']) ?></td>
                             <td><?= htmlspecialchars($s['fecha']) ?></td>
-                        </tr>
-                        <tr>
                             <td colspan="9">
                                 <div class="btn-row">
-					<a href="apagar.php?name=<?php echo htmlspecialchars($s['nombre']) ?>" class="power-btn stop-btn">APAGAR</a>
-                                        <a href="borrar.php?name=<?php echo htmlspecialchars($s['nombre']) ?>" class="power-btn delete-btn">BORRAR</a>
-                                        <a href="start.php?name=<?php echo htmlspecialchars($s['nombre']) ?>&mundo=<?php echo htmlspecialchars($s['mundo']) ?>" class="power-btn start-btn">ENCENDER</a>
-
+					<a href="apagar.php?name=<?php echo htmlspecialchars($s['nombre']) ?>" class="power-btn stop-btn" onclick="return handleAction(this)">APAGAR</a>
+                                        <a href="borrar.php?name=<?php echo htmlspecialchars($s['nombre']) ?>" class="power-btn delete-btn" onclick="return handleAction(this)">BORRAR</a>
+                                        <a href="start.php?name=<?php echo htmlspecialchars($s['nombre']) ?>&mundo=<?php echo htmlspecialchars($s['mundo']) ?>" class="power-btn start-btn" onclick="return handleAction(this)">ENCENDER</a>
+					<a href="estatus.php?name=<?php echo htmlspecialchars($s['nombre']) ?>" class="power-btn estado-btn" onclick="return handleAction(this)">STATUS</a>
                                     </form>
                                 </div>
                             </td>
